@@ -78,7 +78,9 @@ function getResults(inp){
     if (correct === 4 ) { //if you guessed everyhing correctly
       return true;
     }
-    return false;
+    else {
+      return false;
+    }
 }
 function showAnswer(winCon){
   let code = document.getElementById('code');
