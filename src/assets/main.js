@@ -13,12 +13,12 @@ function guess() {
       return false;
     }
     attempt.value++;
-    if(getResults(input)){ //win condition
+    if(getResults(input.value)){ //win condition
       setMessage('You Win! :)');
       showAnswer(true);
       showReplay();
     }
-    if(!getResults(input) && attempt.value >= 10){ //lose condition
+    if(!getResults(input.value) && attempt.value >= 10){ //lose condition
       setMessage("You Lose! :(");
       showAnswer(false);
       showReplay();
@@ -50,26 +50,30 @@ function validateInput(inp){
   }
 }
 function getResults(inp){
-    let sub = '<div class="row"><span class="col-md-6">'+inp+
+    results.innerHTML = '<div class="row"><span class="col-md-6">'+inp+
               '</span><div class="col-md-6>';
     let correct = 0;
-    for (let i = 0; i < inp.length; i++){ //runs through the inputs characters
-      for (let j = 0; j < answer.length; j++){ //runs through the answers characters
-        if (inp.charAt(i) === answer.charAt(j)){ //if the values match
-          if(i === j){ //AND the the position matches
-            sub += '<span class="glyphicon glyphicon-ok"></span>';
-          }
-          else{ //if the position does not match
-            sub += '<span class="glyphicon glyphicon-transfer"></span>';
+    for (let i = 0; i < 4; i++){ //runs through the inputs characters
+      if (inp.charAt(i) === answer.value.charAt(i)){ // value match and position match
+        results.innerHTML += '<span class="glyphicon glyphicon-ok"></span>';
+      }
+      else {
+        let vMatch = false; //we see if the condition that a value matches as false. (initial assumption)
+        for (let j = 0; j < 4; j++){ //run through the answers characters
+          if (inp.charAt(i) === answer.value.charAt(j)){ // if a value match is found
+            vMatch = true; 
+            break;
           }
         }
-        else { // values do NOT match
-          sub += '<span class="glyphicon glyphicon-remove"></span>';
+        if (vMatch) { //if a value matches.
+          results.innerHTML += '<span class="glyphicon glyphicon-transfer"></span>';
+        }
+        else { //default nothing matches
+          results.innerHTML += '<span class="glyphicon glyphicon-remove"></span>';
         }
       }
     }
-    sub += '</div></div>';
-    results.innerHTML = sub;
+    results.innerHTML += '</div></div>';
     if (correct === 4 ) { //if you guessed everyhing correctly
       return true;
     }
