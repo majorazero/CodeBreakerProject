@@ -6,6 +6,11 @@ function guess() {
     //add functionality to guess function here
 }
 function setHiddenFields (){
-  let answer = Math.floor(Math.random()*9999);
+  answer = Math.floor(Math.random()*9999);
+  answer.toString();
+  while(answer.length() < 4){
+    answer = '0'+answer;
+  }
 }
+
 //implement new functions here
