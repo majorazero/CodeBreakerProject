@@ -13,9 +13,18 @@ function guess() {
       return false;
     }
     attempt++;
+    if(getResults(input)){ //win condition
+      setMessage('You Win! :)');
+    }
+    if(!getResults(input) && attempt >= 10){ //lose condition
+      setMessage("You Lose! :(");
+    }
+    else {
+      setMessage('Incorrect, try again.'); //continue
+    }
 }
 function setHiddenFields (){
-  let attempt = 0;
+  attempt = 0;
   answer = Math.floor(Math.random()*9999);
   answer.toString();
   while(answer.length() < 4){
@@ -56,5 +65,9 @@ function getResults(inp){
     }
     sub += '</div></div>';
     results.innerHTML = sub;
+    if (correct === 4 ) { //if you guessed everyhing correctly
+      return true;
+    }
+    return false;
 }
 //implement new functions here
