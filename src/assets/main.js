@@ -13,8 +13,8 @@ function guess() {
       return false;
     }
     attempt.value++;
-    if(getResults(input.value)===true){ //win condition
-      setMessage('You Win! :)');
+    if(getResults(input.value)){ //win condition
+      setMessage("You Win! :)");
       showAnswer(true);
       showReplay();
     }
