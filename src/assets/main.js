@@ -31,7 +31,7 @@ function setHiddenFields (){
   attempt = 0;
   let temp = Math.floor(Math.random()*9999);
   temp = temp.toString();
-  while(temp.length() < 4){
+  while(temp.length < 4){
     temp = '0'+answer;
   }
   answer.value = temp;
@@ -41,7 +41,7 @@ function setMessage(mess){
 }
 
 function validateInput(inp){
-  if (inp.length() === 4){
+  if (inp.length === 4){
     return true;
   }
   else{
@@ -53,8 +53,8 @@ function getResults(inp){
     let sub = '<div class="row"><span class="col-md-6">'+inp+
               '</span><div class="col-md-6>';
     let correct = 0;
-    for (let i = 0; i < inp.length(); i++){ //runs through the inputs characters
-      for (let j = 0; j < answer.length(); j++){ //runs through the answers characters
+    for (let i = 0; i < inp.length; i++){ //runs through the inputs characters
+      for (let j = 0; j < answer.length; j++){ //runs through the answers characters
         if (inp.charAt(i) === answer.charAt(j)){ //if the values match
           if(i === j){ //AND the the position matches
             sub += '<span class="glyphicon glyphicon-ok"></span>';
