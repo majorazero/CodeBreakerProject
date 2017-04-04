@@ -25,11 +25,12 @@ function guess() {
 }
 function setHiddenFields (){
   attempt = 0;
-  answer = Math.floor(Math.random()*9999);
-  answer.toString();
-  while(answer.length() < 4){
-    answer = '0'+answer;
+  let temp = Math.floor(Math.random()*9999);
+  temp = temp.toString();
+  while(temp.length() < 4){
+    temp = '0'+answer;
   }
+  answer.value = temp;
 }
 function setMessage(mess){
   message.innerHTML = mess;
@@ -69,5 +70,14 @@ function getResults(inp){
       return true;
     }
     return false;
+}
+function showAnswer(winCon){
+  code.innerHTML = answer.value;
+  if (winCon){
+    code.className = ' success';
+  }
+  else {
+    code.className = ' failure';
+  }
 }
 //implement new functions here
