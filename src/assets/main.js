@@ -8,9 +8,13 @@ function guess() {
     if (attempt === 0 || answer === ''){
       setHiddenFields();
     }
+    if(!validateInput(input.value)){
+      return false;
+    }
+    attempt++;
 }
 function setHiddenFields (){
-  attempt = 0;
+  let attempt = 0;
   answer = Math.floor(Math.random()*9999);
   answer.toString();
   while(answer.length() < 4){
