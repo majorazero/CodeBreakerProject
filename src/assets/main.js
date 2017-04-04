@@ -80,4 +80,10 @@ function showAnswer(winCon){
     code.className = ' failure';
   }
 }
+function showReplay(){
+  let gDiv = document.getElementById('guessing-div');
+  let rDiv = document.getElementById('replay-div');
+  gDiv.style.display = 'none';
+  rDiv.style.display = 'block';
+}
 //implement new functions here
