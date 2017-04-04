@@ -56,12 +56,13 @@ function getResults(inp){
     for (let i = 0; i < 4; i++){ //runs through the inputs characters
       if (inp.charAt(i) === answer.value.charAt(i)){ // value match and position match
         results.innerHTML += '<span class="glyphicon glyphicon-ok"></span>';
+        correct++;
       }
       else {
         let vMatch = false; //we see if the condition that a value matches as false. (initial assumption)
         for (let j = 0; j < 4; j++){ //run through the answers characters
           if (inp.charAt(i) === answer.value.charAt(j)){ // if a value match is found
-            vMatch = true; 
+            vMatch = true;
             break;
           }
         }
