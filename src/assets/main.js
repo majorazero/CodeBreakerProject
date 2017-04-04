@@ -15,9 +15,13 @@ function guess() {
     attempt++;
     if(getResults(input)){ //win condition
       setMessage('You Win! :)');
+      showAnswer(true);
+      showReplay();
     }
     if(!getResults(input) && attempt >= 10){ //lose condition
       setMessage("You Lose! :(");
+      showAnswer(false);
+      showReplay();
     }
     else {
       setMessage('Incorrect, try again.'); //continue
@@ -72,6 +76,7 @@ function getResults(inp){
     return false;
 }
 function showAnswer(winCon){
+  let code = document.getElementById('code');
   code.innerHTML = answer.value;
   if (winCon){
     code.className = ' success';
