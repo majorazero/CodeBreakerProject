@@ -29,7 +29,7 @@ function guess() {
 }
 function setHiddenFields (){
   attempt = 0;
-  let temp = Math.floor(Math.random()*9999);
+  let temp = Math.floor(Math.random()*10000);
   temp = temp.toString();
   while(temp.length < 4){
     temp = '0'+answer;
