@@ -12,13 +12,13 @@ function guess() {
     if(!validateInput(input.value)){
       return false;
     }
-    attempt++;
+    attempt.value++;
     if(getResults(input)){ //win condition
       setMessage('You Win! :)');
       showAnswer(true);
       showReplay();
     }
-    if(!getResults(input) && attempt >= 10){ //lose condition
+    if(!getResults(input) && attempt.value >= 10){ //lose condition
       setMessage("You Lose! :(");
       showAnswer(false);
       showReplay();
@@ -28,7 +28,7 @@ function guess() {
     }
 }
 function setHiddenFields (){
-  attempt = 0;
+  attempt.value = 0;
   let temp = Math.floor(Math.random()*10000);
   temp = temp.toString();
   while(temp.length < 4){
