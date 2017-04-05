@@ -1,7 +1,6 @@
 let answer = document.getElementById('answer');
 let attempt = document.getElementById('attempt');
 let message = document.getElementById('message');
-let results = document.getElementById('results');
 
 function guess() {
     let input = document.getElementById('user-guess');
@@ -54,7 +53,7 @@ function getResults(inp){
     let sub = '<div class="row"><span class="col-md-6">'+inp+
               '</span><div class="col-md-6>';
     let correct = 0;
-    for (let i = 0; i < input.length; i++){ //runs through the inputs characters
+    for (let i = 0; i < inp.length; i++){ //runs through the inputs characters
       if (inp.charAt(i) === answer.value.charAt(i)){ // value match and position match
         sub += '<span class="glyphicon glyphicon-ok"></span>';
         correct++;
@@ -67,7 +66,7 @@ function getResults(inp){
       }
     }
     sub +=  '</div></div>';
-    results.innerHTML += sub;
+    document.getElementById('results').innerHTML += sub;
     if (correct === 4 ) { //if you guessed everyhing correctly
       return true;
     }
