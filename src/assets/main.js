@@ -13,13 +13,13 @@ function guess() {
       return false;
     }
     attempt.value++;
-    gameRes = getResults(toString(input.value));
+    gameRes = getResults(input.value);
     if(gameRes){ //win condition
       setMessage("You Win! :)");
       showAnswer(true);
       showReplay();
     }
-    if(!gameRes && attempt.value >= 10){ //lose condition
+    else if(!gameRes && attempt.value >= 10){ //lose condition
       setMessage("You Lose! :(");
       showAnswer(false);
       showReplay();
