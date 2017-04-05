@@ -75,8 +75,8 @@ function getResults(inp){
         }
       }
     }
-    results.innerHTML = sub + '</div></div>';
-
+    sub +=  '</div></div>';
+    results.innerHTML += sub; 
     if (correct === 4 ) { //if you guessed everyhing correctly
       return true;
     }
