@@ -13,8 +13,7 @@ function guess() {
       return false;
     }
     attempt.value++;
-    //let gameRes = getResults(input.value);
-    let gameRes = true;
+    gameRes = getResults(toString(input.value));
     if(gameRes){ //win condition
       setMessage("You Win! :)");
       showAnswer(true);
