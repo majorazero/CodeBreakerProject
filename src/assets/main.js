@@ -51,12 +51,12 @@ function validateInput(inp){
   }
 }
 function getResults(inp){
-    results.innerHTML = '<div class="row"><span class="col-md-6">'+inp+
+    let sub = '<div class="row"><span class="col-md-6">'+inp+
               '</span><div class="col-md-6>';
     let correct = 0;
     for (let i = 0; i < 4; i++){ //runs through the inputs characters
       if (inp.charAt(i) === answer.value.charAt(i)){ // value match and position match
-        results.innerHTML += '<span class="glyphicon glyphicon-ok"></span>';
+        sub += '<span class="glyphicon glyphicon-ok"></span>';
         correct++;
       }
       else {
@@ -68,14 +68,15 @@ function getResults(inp){
           }
         }
         if (vMatch) { //if a value matches.
-          results.innerHTML += '<span class="glyphicon glyphicon-transfer"></span>';
+          sub += '<span class="glyphicon glyphicon-transfer"></span>';
         }
         else { //default nothing matches
-          results.innerHTML += '<span class="glyphicon glyphicon-remove"></span>';
+          sub += '<span class="glyphicon glyphicon-remove"></span>';
         }
       }
     }
-    results.innerHTML += '</div></div>';
+    results.innerHTML = sub + '</div></div>';
+
     if (correct === 4 ) { //if you guessed everyhing correctly
       return true;
     }
