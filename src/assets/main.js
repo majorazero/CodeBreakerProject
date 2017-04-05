@@ -78,10 +78,10 @@ function showAnswer(winCon){
   let code = document.getElementById('code');
   code.innerHTML = answer.value;
   if (winCon){
-    code.className = ' success';
+    code.className += ' success';
   }
   else {
-    code.className = ' failure';
+    code.className += ' failure';
   }
 }
 function showReplay(){
