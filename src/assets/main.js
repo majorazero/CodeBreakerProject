@@ -49,16 +49,15 @@ function validateInput(inp){
     return false;
   }
 }
-function getResults(inp){
-    let sub = '<div class="row"><span class="col-md-6">'+inp+
-              '</span><div class="col-md-6>';
+function getResults(input){
     let correct = 0;
-    for (let i = 0; i < inp.length; i++){ //runs through the inputs characters
-      if (inp.charAt(i) === answer.value.charAt(i)){ // value match and position match
+    let sub = '<div class="row"><span class="col-md-6">'+input+'</span><div class="col-md-6">';
+    for (i = 0; i < input.length; i++){ //runs through the inpututs characters
+      if (input.charAt(i) === answer.value.charAt(i)){ // value match and position match
         sub += '<span class="glyphicon glyphicon-ok"></span>';
         correct++;
       }
-      else if (answer.value.indexOf(inp.charAt(i)) > -1){ //it exists in answer
+      else if (answer.value.indexOf(input.charAt(i)) > -1){ //it exists in answer
           sub += '<span class="glyphicon glyphicon-transfer"></span>';
       }
       else { //default nothing matches
@@ -66,8 +65,9 @@ function getResults(inp){
       }
     }
     sub +=  '</div></div>';
+    console.log(sub);
     document.getElementById('results').innerHTML += sub;
-    if (correct === 4 ) { //if you guessed everyhing correctly
+    if (correct === input.length ) { //if you guessed everyhing correctly
       return true;
     }
     else {
